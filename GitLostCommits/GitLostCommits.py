@@ -7,7 +7,7 @@
 import re
 import conf
 
-regex_match_task_id = 'NX-\d{1,4}'
+
 regex_match_sha1 = '\b[0-9a-f]{5,40}\b' 
 
 
@@ -38,7 +38,7 @@ def create_commit_list_from_string(str):
     result = []
     for line in str.split('\n'):
         line = line.strip()
-        match = re.search(regex_match_task_id, line)
+        match = re.search(conf.regex_match_task_id, line)
         if match:
             taskid = match.group()
             sha1 = line[0:7]
